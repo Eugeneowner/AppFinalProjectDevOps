@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: application-backend
-        image: eugeneowner/final-project:test
+        image: eugeneowner/application-backend:test
         ports:
         - containerPort: 8080
