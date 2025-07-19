@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application-backend
+  namespace: backend
+  labels:
+    app: application-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: application-backend
+  template:
+    metadata:
+      labels:
+        app: application-backend
+    spec:
+      containers:
+      - name: application-backend
+        image: eugeneowner/final-project:test
+        ports:
+        - containerPort: 8080
