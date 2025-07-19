@@ -20,7 +20,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/application-backend:test ./app
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/application-backend:test ./Application
 
     - name: Push Docker image
       run: |
