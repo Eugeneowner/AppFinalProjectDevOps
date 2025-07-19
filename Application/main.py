@@ -9,5 +9,5 @@ def get_host_ip():
     ip = socket.gethostbyname(hostname)
     return f"<strong>Host IP: </strong>{ip}\n"
 
-if name == "__main__":
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
