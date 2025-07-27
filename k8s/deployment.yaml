@@ -16,7 +16,9 @@ spec:
         app: application-backend
     spec:
       containers:
-      - name: application-backend
-        image: eugeneowner/application-backend:test
-        ports:
-        - containerPort: 8080
+        - name: application-backend
+          image: eugeneowner/application-backend:test
+          imagePullPolicy: Always
+          workingDir: /app
+          ports:
+            - containerPort: 8080
