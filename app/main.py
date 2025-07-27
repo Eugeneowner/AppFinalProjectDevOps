@@ -1,13 +1,27 @@
-from flask import Flask
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import socket
 
-app = Flask(__name__)
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == '/':
+            pod_ip = socket.gethostbyname(socket.gethostname())
+            response_message = f"hello, IP address is: {pod_ip}!! This is v1.3"
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/plain; charset=utf-8')
+            self.end_headers()
+            self.wfile.write(bytes(response_message, "UTF-8"))
 
-@app.route("/")
-def get_host_ip():
-    hostname = socket.gethostname()
-    ip = socket.gethostbyname(hostname)
-    return f"<strong>Host IP: </strong>{ip}\n"
+        elif self.path == '/health':
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/plain; charset=utf-8')
+            self.end_headers()
+            self.wfile.write(b"OK")
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8080):
+    server_address = ('0.0.0.0', port)
+    httpd = server_class(server_address, handler_class)
+    print(f'Starting httpd server on port {port}...')
+    httpd.serve_forever()
+
+if __name__ == '__main__':
+    run()
