@@ -3,8 +3,6 @@ name: Build and Push Docker Image
 on:
   push:
     branches: [main]
-    # paths:
-    #   - 'app/**' # можешь раскомментировать если нужно триггерить только при изменениях в app
 
 jobs:
   docker:
@@ -25,7 +23,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/application-backend:final ./app
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/application-backend:latest ./app
 
       - name: Push Docker image
         run: |
