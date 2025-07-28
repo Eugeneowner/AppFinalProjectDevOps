@@ -73,6 +73,7 @@ HTML_TEMPLATE = """
 </html>
 """
 
+
 @app.route("/")
 def index():
     pod_ip = socket.gethostbyname(socket.gethostname())
@@ -86,3 +87,5 @@ def health():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
+
+
