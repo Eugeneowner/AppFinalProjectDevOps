@@ -28,4 +28,4 @@ jobs:
         with:
           context: ./app
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/application-backend:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/application-backend:v1.1
