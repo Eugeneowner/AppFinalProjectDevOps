@@ -5,7 +5,8 @@
   <title>IP Info Dashboard</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body class="light"> <!-- default light -->
+
   <div class="wrapper">
     <h1>🔍 IP Info Dashboard</h1>
     <p class="subtitle">Подключение к поду внутри Kubernetes-кластера</p>
@@ -14,6 +15,8 @@
       <p><strong>📍 IP-адрес пода:</strong> {{ ip }}</p>
       <p><strong>🛠️ Версия:</strong> {{ version }}</p>
     </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">🌗 Сменить тему</button>
   </div>
 
   <script src="{{ url_for('static', filename='theme.js') }}"></script>

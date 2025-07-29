@@ -2,60 +2,73 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background 0.5s ease;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
+/* Светлая тема */
+body.light {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  color: #222;
+}
+
+body.light .info-card {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #222;
+}
+
+/* Тёмная тема */
+body.dark {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #eee;
+}
+
+body.dark .info-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e0e0e0;
+}
+
+/* Общие стили */
 .wrapper {
   text-align: center;
   max-width: 600px;
-  margin: auto;
 }
 
 h1 {
   font-size: 36px;
   margin-bottom: 10px;
-  color: #1e1e1e;
 }
 
 .subtitle {
   font-size: 18px;
-  color: #555;
   margin-bottom: 30px;
 }
 
 .info-card {
-  background: rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #222;
   font-size: 18px;
   line-height: 1.6;
   text-align: left;
+  display: inline-block;
 }
 
-.info-card p {
-  margin: 12px 0;
-}
-
-.night {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-}
-
-.night .info-card {
-  background: rgba(255, 255, 255, 0.08);
-  color: #e0e0e0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.night h1, .night .subtitle {
-  color: #eee;
+.theme-toggle {
+  margin-top: 30px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #ffffff44;
+  color: inherit;
+  transition: background 0.3s ease;
 }
