@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>IP Info</title>
+  <meta charset="UTF-8" />
+  <title>IP Info Dashboard</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -15,5 +15,7 @@
       <p><strong>🛠️ Версия:</strong> {{ version }}</p>
     </div>
   </div>
+
+  <script src="{{ url_for('static', filename='theme.js') }}"></script>
 </body>
 </html>

@@ -2,11 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f9fc;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  transition: background 0.5s ease;
 }
 
 .wrapper {
@@ -17,27 +18,44 @@ body {
 
 h1 {
   font-size: 36px;
-  margin-bottom: 8px;
-  color: #202020;
+  margin-bottom: 10px;
+  color: #1e1e1e;
 }
 
 .subtitle {
   font-size: 18px;
-  color: #666;
+  color: #555;
   margin-bottom: 30px;
 }
 
 .info-card {
-  background-color: #fff;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #222;
   font-size: 18px;
   line-height: 1.6;
-  color: #333;
   text-align: left;
 }
 
 .info-card p {
-  margin: 10px 0;
+  margin: 12px 0;
+}
+
+.night {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.night .info-card {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.night h1, .night .subtitle {
+  color: #eee;
 }
