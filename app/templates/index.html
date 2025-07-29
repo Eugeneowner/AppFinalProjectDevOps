@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <title>IP Info Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔍 IP Info Dashboard</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body class="light"> <!-- default light -->
-
-  <div class="wrapper">
+<body>
+  <div class="container">
     <h1>🔍 IP Info Dashboard</h1>
     <p class="subtitle">Подключение к поду внутри Kubernetes-кластера</p>
-
-    <div class="info-card">
-      <p><strong>📍 IP-адрес пода:</strong> {{ ip }}</p>
-      <p><strong>🛠️ Версия:</strong> {{ version }}</p>
+    <div class="glass">
+      <p>📍 <strong>IP-адрес пода:</strong> {{ ip }}</p>
+      <p>🛠️ <strong>Версия:</strong> {{ version }}</p>
+      <button id="toggle-theme">🌗 Сменить тему</button>
     </div>
-
-    <button class="theme-toggle" onclick="toggleTheme()">🌗 Сменить тему</button>
   </div>
 
-  <script src="{{ url_for('static', filename='theme.js') }}"></script>
+  <script>
+    const toggle = document.getElementById("toggle-theme");
+    toggle.addEventListener("click", () => {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === "light" ? "dark" : "light";
+    });
+  </script>
 </body>
 </html>
