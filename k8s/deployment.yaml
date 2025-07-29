@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: application-backend
-          image: eugeneowner/application-backend:v1.6
+          image: eugeneowner/application-backend:v1.7
           imagePullPolicy: Always
           workingDir: /app
           ports:
