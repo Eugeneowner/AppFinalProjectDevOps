@@ -23,8 +23,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/application-backend:v1.3 ./app
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/application-backend:v1.4 ./app
 
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/application-backend:v1.3
+          docker push ${{ secrets.DOCKER_USERNAME }}/application-backend:v1.4
