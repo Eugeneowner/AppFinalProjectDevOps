@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pod Info</title>
+  <title>IP Info</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome!</h1>
-    <p>Hello, IP address is: {{ ip }}</p>
-    <p>This is {{ version }}</p>
+  <div class="wrapper">
+    <h1>🔍 IP Info Dashboard</h1>
+    <p class="subtitle">Подключение к поду внутри Kubernetes-кластера</p>
+
+    <div class="info-card">
+      <p><strong>📍 IP-адрес пода:</strong> {{ ip }}</p>
+      <p><strong>🛠️ Версия:</strong> {{ version }}</p>
+    </div>
   </div>
 </body>
 </html>
