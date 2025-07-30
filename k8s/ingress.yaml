@@ -1,13 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: application-backend-ingress
+  name: application-backend
   namespace: backend
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    external-dns.alpha.kubernetes.io/hostname: app.eugeneowner.devops7.test-danit.com
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/acme-challenge: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - app.eugeneowner.devops7.test-danit.com
+      secretName: app-tls
   rules:
     - host: app.eugeneowner.devops7.test-danit.com
       http:
@@ -19,3 +25,5 @@ spec:
                 name: application-backend
                 port:
                   number: 80
+
+                  
