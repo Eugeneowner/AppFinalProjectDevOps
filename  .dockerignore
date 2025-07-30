@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+.git
+.gitignore
+*.md
+Dockerfile
+*.yaml
+k8s/
+EKS/
+Screen
